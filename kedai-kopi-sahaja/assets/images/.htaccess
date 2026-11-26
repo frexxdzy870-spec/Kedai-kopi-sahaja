@@ -1,0 +1,6 @@
+# Folder gambar: jangan pernah jalankan skrip
+<FilesMatch "(?i)\.(php\d?|phtml|phar|cgi|pl|py)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>

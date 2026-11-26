@@ -1,0 +1,16 @@
+# Kedai Kopi Sahaja
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Proteksi folder & file sensitif
+  RewriteRule (^|/)(config|includes|database)(/|$) - [F,L,NC]
+  RewriteRule ^assets/uploads(/|$) - [F,L,NC]
+  RewriteRule (^|/)\.(?!well-known) - [F,L]
+  RewriteRule \.(sql|md|log|bak|ini)$ - [F,L,NC]
+
+  # Clean URL: /menu -> pages/menu.php
+  RewriteRule ^(menu|event|lowongan|komunitas|tentang-kami|reservasi)/?$ pages/$1.php [L,QSA]
+</IfModule>
